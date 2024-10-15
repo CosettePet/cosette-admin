@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  next: 
+    build: ./
+  nginx: 
+    build: ./nginx
+    ports:
+      - 80:80
