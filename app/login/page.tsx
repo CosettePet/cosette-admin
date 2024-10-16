@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-
-
+import UserAuthForm from "./components/UserAuthForm"
+import Image from 'next/image'
 const LoginPage = () => {
     return (
         <main className="">
@@ -36,28 +36,29 @@ const LoginPage = () => {
                                 宠爱到家
                             </div>
                             <div className="relative z-20 mt-auto">
-                                <blockquote className="space-y-2">
-                                    <p className="text-lg">
-                                        &ldquo;This library has saved me countless hours of work and
-                                        helped me deliver stunning designs to my clients faster than
-                                        ever before.&rdquo;
-                                    </p>
-                                    <footer className="text-sm">Sofia Davis</footer>
-                                </blockquote>
+                                <Image
+
+                                    src="/login-left.svg"
+                                    width={0}
+                                    height={0}
+                                    sizes="100vw"
+                                    className="w-full h-auto"
+                                    alt="宠爱到家"
+                                />
                             </div>
                         </div>
                         <div className="lg:p-8">
                             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
                                 <div className="flex flex-col space-y-2 text-center">
-                                    <h1 className="text-2xl font-semibold tracking-tight">
-                                        Create an account
+                                    <h1 className="text-2xl font-semibold tracking-tight text-center">
+                                        宠爱到家后台管理系统
                                     </h1>
                                     <p className="text-sm text-muted-foreground">
-                                        Enter your email below to create your account
+                                        诚信・团队合作・拥抱变化
                                     </p>
                                 </div>
-                                {/* <UserAuthForm /> */}
-                                <p className="px-8 text-center text-sm text-muted-foreground">
+                                <UserAuthForm />
+                                {/* <p className="px-8 text-center text-sm text-muted-foreground">
                                     By clicking continue, you agree to our{" "}
                                     <Link
                                         href="/terms"
@@ -73,7 +74,7 @@ const LoginPage = () => {
                                         Privacy Policy
                                     </Link>
                                     .
-                                </p>
+                                </p> */}
                             </div>
                         </div>
                     </div>
