@@ -5,28 +5,18 @@ import { ThemeProvider } from "@/components/ui/theme-provider"
 import * as React from "react"
 import {
   AudioWaveform,
-  BadgeCheck,
-  Bell,
   BookOpen,
   Bot,
   ChevronRight,
-  ChevronsUpDown,
   Command,
-  CreditCard,
-  Folder,
-  Forward,
   Frame,
   GalleryVerticalEnd,
-  LogOut,
   Map,
-  MoreHorizontal,
   PieChart,
-  Plus,
   Settings2,
-  Sparkles,
   SquareTerminal,
-  Trash2,
-  Moon, Sun
+  Moon, 
+  Sun
 } from "lucide-react"
 
 import { useTheme } from "next-themes"
@@ -35,13 +25,11 @@ import { Button } from "@/components/ui/button"
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarInset,
   SidebarMenu,
-  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
@@ -73,8 +61,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 // This is sample data.
