@@ -1,8 +1,22 @@
-version: '3.9'
+version: '3.8'
+
 services:
-  next: 
-    build: ./
-  nginx: 
-    build: ./nginx
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs_app
+    volumes:
+      - .:/app
     ports:
-      - 80:80
+      - "3000:3000"
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - app

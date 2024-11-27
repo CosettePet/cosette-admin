@@ -1,33 +1,31 @@
-FROM node:alpine
+# 使用 Node.js 官方镜像
+FROM node:18-alpine
 
-# Set working directory
-WORKDIR /usr/app
+# 设置工作目录
+WORKDIR /app
 
+# 设置npm镜像源
 RUN npm config set registry https://registry.npmmirror.com/
 
-# Install PM2 globally
-RUN npm install --global pm2
+# 复制依赖文件并安装
+COPY package*.json ./
+RUN npm install
 
-# Copy "package.json" and "package-lock.json" before other files
-# Utilise Docker cache to save re-installing dependencies if unchanged
-COPY ./package*.json ./
+# 复制项目文件到容器
+COPY . .
 
-# Install dependencies
-RUN npm install --production --omit=dev
-
-# Copy all files
-COPY ./ ./
-
-# Build app
+# 构建 Next.js 应用
 RUN npm run build
 
-# Expose the listening port
+# 全局安装 PM2
+RUN npm install pm2 -g
+
+# 暴露端口
 EXPOSE 3000
 
-# Run container as non-root (unprivileged) user
-# The "node" user is provided in the Node.js Alpine base image
-USER node
+# 使用 PM2 启动 Next.js
+CMD ["pm2-runtime", "ecosystem.config.js"]
 
-# Launch app with PM2
-CMD [ "pm2-runtime", "start", "npm", "--", "start" ]
+
+
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { ThemeProvider } from "@/components/ui/theme-provider"
+
 
 import * as React from "react"
 import {
@@ -15,13 +15,13 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
-  Moon, 
+  Moon,
   Sun
 } from "lucide-react"
-
+import { ThemeProvider } from "../../components/ui/theme-provider"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../../components/ui/button"
 import {
   Sidebar,
   SidebarContent,
@@ -38,13 +38,13 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "../../components/ui/sidebar"
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "../../components/ui/collapsible"
 
 import {
   Breadcrumb,
@@ -53,16 +53,16 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "../../components/ui/breadcrumb"
 
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "../../components/ui/separator"
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "../../components/ui/dropdown-menu"
 // This is sample data.
 const data = {
   user: {
@@ -96,7 +96,7 @@ const data = {
       items: [
         {
           title: "History",
-          url: "#",
+          url: "/dashboard/history",
         },
         {
           title: "Starred",
