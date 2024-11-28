@@ -1,30 +1,36 @@
-# 使用 Node.js 官方镜像
+
+
+
+# Use the official Node.js image as the base image
 FROM node:18-alpine
 
-# 设置工作目录
+# Set the working directory
 WORKDIR /app
 
-# 设置npm镜像源
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+
+# set npm registry
 RUN npm config set registry https://registry.npmmirror.com/
 
-# 复制依赖文件并安装
-COPY package*.json ./
+# Install dependencies
 RUN npm install
 
-# 复制项目文件到容器
+# Copy the rest of the application code
 COPY . .
 
-# 构建 Next.js 应用
+# Build the Next.js application
 RUN npm run build
 
-# 全局安装 PM2
-RUN npm install pm2 -g
+# Install PM2 globally
+RUN npm install -g pm2
 
-# 暴露端口
+# Expose the port the app runs on
 EXPOSE 3000
 
-# 使用 PM2 启动 Next.js
-CMD ["pm2-runtime", "ecosystem.config.js"]
+# Start the application with PM2
+CMD ["pm2-runtime", "start", "npm", "--name", "my-next-app", "--", "start"]
 
 
 
