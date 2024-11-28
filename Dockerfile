@@ -27,11 +27,12 @@ RUN npm run build
 RUN npm install -g pm2
 
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 5173
 
 # Start the application with PM2
-CMD ["pm2-runtime", "start", "npm", "--name", "my-next-app", "--", "start"]
+# CMD ["pm2-runtime", "start", "npm", "--name", "my-next-app", "--", "start"]
 
+CMD ["pm2-runtime", "ecosystem.config.js","--daemon"]
 
 
 
