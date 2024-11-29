@@ -1,13 +1,13 @@
 "use client"
 
-import { Button } from "../../../components/ui/button"
+import { Button } from "../../ui/button"
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader
-} from "../../../components/ui/card"
-import { Input } from "../../../components/ui/input"
+} from "../../ui/card"
+import { Input } from "../../ui/input"
 import {
   Form,
   FormControl,
@@ -15,13 +15,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../../components/ui/form"
+} from "../../ui/form"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "../../../components/ui/tabs"
+} from "../../ui/tabs"
 import Link from 'next/link';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"

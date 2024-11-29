@@ -1,6 +1,3 @@
-
-
-
 # Use the official Node.js image as the base image
 FROM node:18-alpine
 
@@ -9,7 +6,6 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
-
 
 # set npm registry
 RUN npm config set registry https://registry.npmmirror.com/
@@ -30,9 +26,9 @@ RUN npm install -g pm2
 EXPOSE 5173
 
 # Start the application with PM2
-# CMD ["pm2-runtime", "start", "npm", "--name", "my-next-app", "--", "start"]
+CMD ["pm2-runtime", "start", "npm", "--name", "my-next-app", "--", "start"]
 
-CMD ["pm2-runtime", "ecosystem.config.js","--daemon"]
+# CMD ["pm2-runtime", "ecosystem.config.js","--daemon"]
 
 
 
