@@ -1,8 +1,10 @@
+"use client"
 import Link from "next/link"
 import { cn } from "../../lib/utils"
 import { buttonVariants } from "../../components/ui/button"
 import UserAuthForm from "./components/UserAuthForm"
-import Image from 'next/image'
+
+import BackgroundAnimation from '../../components/custom/BackgroundAnimation'
 const LoginPage = () => {
     return (
         <main className="">
@@ -36,15 +38,10 @@ const LoginPage = () => {
                                 宠爱到家
                             </div>
                             <div className="relative z-20 mt-auto">
-                                <Image
+                              
 
-                                    src="/login-left.svg"
-                                    width={0}
-                                    height={0}
-                                    sizes="100vw"
-                                    className="w-full h-auto"
-                                    alt="宠爱到家"
-                                />
+                                <BackgroundAnimation/>
+
                             </div>
                         </div>
                         <div className="lg:p-8">

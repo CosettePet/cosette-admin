@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/dashboard",
-        permanent: true,
-      },
-    ];
+  webpack(config, { dev }) {
+    if (dev) {
+      config.devtool = false;  // 禁用源映射
+    }
+    return config;
   },
 };
 
