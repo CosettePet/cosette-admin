@@ -126,7 +126,7 @@ const UserAuthForm = () => {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <Button type="submit">登陆</Button> <Link href='/about'>忘记密码?</Link>
+                <Button type="submit">登陆</Button> <Link href='/'>忘记密码?</Link>
               </CardFooter>
             </Card>
           </form>

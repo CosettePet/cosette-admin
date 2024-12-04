@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
-  webpack(config, { dev }) {
+  productionBrowserSourceMaps: true,
+  webpack(config,{ dev }) {
     if (dev) {
       config.devtool = false;  // 禁用源映射
     }

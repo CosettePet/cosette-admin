@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'next-app',                // 应用名称
-      script: './.next/standalone/server.js', // Next.js Standalone 入口文件路径
+      script: '.next/standalone/server.js', // Next.js Standalone 入口文件路径
       cwd: './', // 应用根目录
       instances: 'max', // 根据服务器 CPU 核心数启动多个实例
       exec_mode: 'cluster', // 使用 cluster 模式

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { cn } from "../../lib/utils"
 import { buttonVariants } from "../../components/ui/button"
 import UserAuthForm from "../../components/custom/UserAuthForm"
-
+import BackgroundAnimation from "../../components/custom/BackgroundAnimation"
 const LoginPage = () => {
     return (
         <main className="">
@@ -38,7 +38,7 @@ const LoginPage = () => {
                                 宠爱到家
                             </div>
                             <div className="relative z-20 mt-auto">
-
+                                <BackgroundAnimation />
                             </div>
                         </div>
                         <div className="lg:p-8">
