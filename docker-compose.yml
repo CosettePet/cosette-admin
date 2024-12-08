@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '5173:5173'
+    environment:
+      - NODE_ENV=production
+      - PORT=5173
+    networks:
+      - cosette-net
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - cosette-net
+
+networks:
+  cosette-net:
+    driver: bridge
