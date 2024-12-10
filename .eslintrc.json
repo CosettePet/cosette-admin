@@ -32,10 +32,13 @@
   "overrides": [
     {
       "files": [
-        "*.js"
+        "*.js",
+        "**/components/ui/**"
       ],
       "rules": {
-        "unicorn/prefer-module": "off"
+        "unicorn/prefer-module": "off",
+        "unicorn/no-null": "off",
+        "unicorn/no-document-cookie": "off"
       }
     }
   ]
