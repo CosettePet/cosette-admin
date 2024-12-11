@@ -7,9 +7,11 @@ import {
 import AppSidebarContent from './AppSidebarContent';
 import AppSidebarHeader from './AppSidebarHeader';
 
-export default function AppSidebar() {
+export default function AppSidebar({
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon" {...props}>
       {/* 侧边栏头 */}
       <SidebarHeader>
         <AppSidebarHeader />
