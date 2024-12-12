@@ -1,8 +1,13 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from '@/components/ui/input-otp';
 
 import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
@@ -27,13 +32,29 @@ export default function Register() {
       .max(11, {
         message: '手机号不符合规则',
       }),
-    captcha: z
+    password: z
       .string()
-      .min(4, {
+      .min(6, {
         message: '密码至少4个字符',
       })
-      .max(23, {
-        message: '密码最多23个字符',
+      .max(28, {
+        message: '密码最多28个字符',
+      }),
+    requirePassword: z
+      .string()
+      .min(6, {
+        message: '密码至少4个字符',
+      })
+      .max(28, {
+        message: '密码最多28个字符',
+      }),
+    captcha: z
+      .string()
+      .min(6, {
+        message: '验证码不能少于6位',
+      })
+      .max(6, {
+        message: '验证码不能少于6位',
       }),
   });
 
@@ -42,7 +63,9 @@ export default function Register() {
     resolver: zodResolver(REGISTER_SCHMA),
     defaultValues: {
       telphone: '15801121357',
-      captcha: 'root',
+      password: 'wanlum',
+      requirePassword: 'wanlum',
+      captcha: '123456',
     },
   });
 
@@ -87,6 +110,50 @@ export default function Register() {
                 />
               </div>
               <div className="space-y-1">
+                {/* <Label htmlFor="mobile">手机号</Label>
+                  <Input id="mobile" type="text" placeholder="请输入您的手机号" /> */}
+
+                <FormField
+                  control={registerForm.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>密码</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="password"
+                          placeholder="请设置您的密码"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className="space-y-1">
+                {/* <Label htmlFor="mobile">手机号</Label>
+                  <Input id="mobile" type="text" placeholder="请输入您的手机号" /> */}
+
+                <FormField
+                  control={registerForm.control}
+                  name="requirePassword"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>确认密码</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="password"
+                          placeholder="请再次输入密码"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className="space-y-1">
                 <div className="flex w-full max-w-sm items-center justify-between space-x-2">
                   <FormField
                     control={registerForm.control}
@@ -95,7 +162,16 @@ export default function Register() {
                       <FormItem>
                         <FormLabel>验证码</FormLabel>
                         <FormControl>
-                          <Input placeholder="请输入验证码" {...field} />
+                          <InputOTP maxLength={6} {...field}>
+                            <InputOTPGroup>
+                              <InputOTPSlot index={0} />
+                              <InputOTPSlot index={1} />
+                              <InputOTPSlot index={2} />
+                              <InputOTPSlot index={3} />
+                              <InputOTPSlot index={4} />
+                              <InputOTPSlot index={5} />
+                            </InputOTPGroup>
+                          </InputOTP>
                         </FormControl>
                         <FormMessage />
                       </FormItem>

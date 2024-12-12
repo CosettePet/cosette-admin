@@ -1,4 +1,4 @@
-import { Fullscreen, LanguagesIcon, Search } from 'lucide-react';
+import { Bell, Fullscreen, LanguagesIcon, Search } from 'lucide-react';
 
 import {
   Breadcrumb,
@@ -42,7 +42,7 @@ export default function AppHeader() {
 
           {/* 通知 */}
           <Button variant="outline" size="icon">
-            <Fullscreen />
+            <Bell />
           </Button>
 
           {/* 全屏 */}

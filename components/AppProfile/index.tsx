@@ -3,6 +3,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 export default function AppProfile() {
@@ -14,11 +16,11 @@ export default function AppProfile() {
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
-          <span>Admin</span>
+          <span>WanLum</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          {/* <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator /> */}
+          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuSeparator />
           <DropdownMenuItem>个人中心</DropdownMenuItem>
           <DropdownMenuItem>修改密码</DropdownMenuItem>
           <DropdownMenuItem>退出系统</DropdownMenuItem>
