@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    container_name: app  # 设置 app 服务的容器名称
+    build:
+      context: . 
     ports:
       - '5173:5173'
     environment:
@@ -10,8 +12,16 @@ services:
       - PORT=5173
     networks:
       - cosette-net
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173"]
+      interval: 30s
+      retries: 3
+      start_period: 5s
+      timeout: 10s
 
   nginx:
+    container_name: nginx  # 设置 nginx 服务的容器名称
     image: nginx:alpine
     ports:
       - '80:80'
@@ -21,6 +31,13 @@ services:
       - app
     networks:
       - cosette-net
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      retries: 3
+      start_period: 5s
+      timeout: 10s
 
 networks:
   cosette-net:
